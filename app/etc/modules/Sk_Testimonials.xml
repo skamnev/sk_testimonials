@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--
+Inchoo Blog Module
+Author: Sergey Kamnev(sergey.kamnev@gmail.com)
+-->
+<config>
+    <modules>
+        <Sk_Testimonials>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Sk_Testimonials>
+    </modules>
+</config>

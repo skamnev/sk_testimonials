@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default translate="label">
+        <reference name="root">
+            <reference name="top.links">
+                <action method="addLink" translate="label title" module="sk_testimonials">
+                    <label>Testimonials</label>
+                    <url>/testimonials</url>
+                    <title>Testimonials</title>
+                    <prepare/>
+                    <urlParams/>
+                    <position>10</position>
+                </action> 
+            </reference> 
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+    </default>
+    
+    <sk_testimonials_index_index>
+        <label>Testimonials</label>
+        <reference name="content">
+            <block type="sk_testimonials/testimonials_view" name="sk_testimonials.view" template="sk_testimonials/view.phtml">
+                <block type="sk_testimonials/form_add" name="sk_testimonials_form_add" template="sk_testimonials/form/add.phtml" />
+            </block>
+        </reference>
+    </sk_testimonials_index_index>
+</layout>

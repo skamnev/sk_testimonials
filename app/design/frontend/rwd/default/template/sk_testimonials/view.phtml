@@ -1,0 +1,29 @@
+<?php
+    $testimonialsCollection = $this->getTestimonialsCollection();
+?>
+<div class="testimonials-wrapper">
+    <div id="messages_testimonials_view"><?php echo $this->getMessagesBlock()->toHtml() ?></div>
+    <div class="page-title">
+        <h1><?php echo Mage::helper('sk_testimonials')->__('Testimonials') ?></h1>
+    </div>
+
+    <?php echo $this->getChildHtml('sk_testimonials_form_add', false);?>
+    
+    <?php if(!$testimonialsCollection->count()): ?>
+        <p class="note-msg"><?php echo $this->__('There are no testimonials yet') ?></p>
+    <?php else: ?>
+        <?php foreach ($testimonialsCollection as $key => $testimonial) : ?>
+        <div class="testimonial-item <?php if( $key == sizeof($testimonialsCollection) ): ?> last<?php endif; ?>">
+            <div class="testimonial-comment padding-totals">
+                <?php echo $testimonial->comment;?>
+            </div>
+            <div class="testimonial-author align-right">
+                <?php $customer = Mage::getModel('customer/customer')->load($testimonial->user_id); ?>
+                <i>"<?php echo $customer->getName();?>"</i>
+            </div>
+        </div>
+        <?php endforeach;?>
+    
+        <?php echo $this->getPagerHtml(); ?>
+    <?php endif; ?>
+</div>
